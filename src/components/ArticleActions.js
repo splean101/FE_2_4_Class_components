@@ -1,15 +1,11 @@
-import React, {Component} from "react";
+import React from 'react';
 
-class ArticleActions extends Component{
-
-  render(){
-    return (
-      <div className="article__actions">
-        <button className="article__btn">Read</button>
-      </div>
-    );
-  }
+function ArticleActions(props) {
+  return (
+    <div className="article__actions">
+      <button className="article__btn">{props.text}</button>
+    </div>
+  );
 }
 
 export default ArticleActions;
-

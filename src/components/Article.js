@@ -1,19 +1,15 @@
-import React, {Component} from "react";
-import ArticleActions from "./ArticleActions";
-import ArticleBody from "./ArticleBody";
+import React, { Component } from 'react';
+import ArticleActions from './ArticleActions';
+import ArticleBody from './ArticleBody';
 
-class Article extends Component {
-
-    render (){
-        return (
-            <div className="article">
-            {this.props.children}
-            <ArticleBody lang={this.props.lang} />
-            <ArticleActions />
-            </div>
-            );
-    }
+function Article(props) {
+    console.log('ArtProps', props);
+  return (
+    <div className="article">
+      {props.children}
+      <ArticleBody lang={props.lang} />
+      <ArticleActions text={props.lang.button_text} />
+    </div>
+  );
 }
 export default Article;
-
-
