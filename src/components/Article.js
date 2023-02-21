@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import ArticleActions from './ArticleActions';
 import ArticleBody from './ArticleBody';
+import ArticleTitle from './ArticleTitle';
 
-function Article(props) {
-    console.log('ArtProps', props);
+function Article() {
   return (
     <div className="article">
-      {props.children}
-      <ArticleBody lang={props.lang} />
-      <ArticleActions text={props.lang.button_text} />
+      <div className="article__title">
+        <ArticleTitle />
+      </div>
+      <ArticleBody />
+      <ArticleActions />
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-// import ArticleBody from "./components/ArticleBody";
-// import ArticleActions from "./components/ArticleActions";
+import Title from './components/Title';
 import Article from './components/Article';
+
+import LangContext from './components/lang-context';
 
 const EN = {
   title_text: 'NVIDIA NEWS',
@@ -57,20 +58,18 @@ class App extends Component {
   render() {
     return (
       <div className="wrapper">
-        <h1 className="title">NVIDIA news</h1>{/* Title */}
-        <Article lang={this.state.lang}>
-          <div className="article__title">
-            <h2>NVIDIA Accelerated AI on Azure</h2>{/* ArticleTitle */}
+        <LangContext.Provider value={this.state.lang}>
+          <Title />
+          <Article />
+          <div className="lang">
+            <button onClick={this.SetLangUA.bind(this)} className="lang-btn">
+              UA
+            </button>
+            <button onClick={this.SetLangEN.bind(this)} className="lang-btn">
+              EN
+            </button>
           </div>
-        </Article>
-        <div className="lang">
-          <button onClick={this.SetLangUA.bind(this)} className="lang-btn">
-            UA
-          </button>
-          <button onClick={this.SetLangEN.bind(this)} className="lang-btn">
-            EN
-          </button>
-        </div>
+        </LangContext.Provider>
       </div>
     );
   }
