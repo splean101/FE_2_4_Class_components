@@ -49,10 +49,12 @@ class App extends Component {
 
   SetLangEN() {
     this.setState({ lang: EN });
+    localStorage.setItem('lang', 'EN');
   }
 
   SetLangUA() {
     this.setState({ lang: UA });
+    localStorage.setItem('lang', 'UA');
   }
 
   render() {
