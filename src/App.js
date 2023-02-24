@@ -35,7 +35,14 @@ class App extends Component {
 
   componentDidMount() {
     langBtns = document.querySelectorAll('.lang-btn');
-    langBtns[1].classList.add('active');
+    if (localStorage.getItem('lang') === null) {
+      this.setState({ lang: EN });
+    } else if (localStorage.getItem('lang') === 'EN') {
+      this.setState({ lang: EN });
+      return;
+    } else {
+      this.setState({ lang: UA });
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
